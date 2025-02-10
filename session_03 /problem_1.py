@@ -24,6 +24,23 @@ Instead of scanning every letter, start by looking at a letter near the middle o
 Use two markers:
 One at the beginning (low)
 One at the end (high)
+
+
+def find_char_bisection(target: str, letter: str) -> int:
+    left = 0
+    right = len(target) - 1
+    while left <= right:
+        middle = int((left + right) / 2)
+        if target[middle] == letter:
+            return middle
+        elif target[middle] < letter:
+            left = middle + 1
+        else:
+            right = middle - 1
+    return -1
+
+
+
 While there’s still a meaningful range to search:
 Find the middle position.
 Compare this letter with the target:
